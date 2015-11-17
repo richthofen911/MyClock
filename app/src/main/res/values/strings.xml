@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyClock</string>
+
+    <string-array name="locations">
+        <item>Dundas &amp; Spadina</item>
+        <item>College &amp; Spadina</item>
+        <item>Center UofT</item>
+        <item>Kelly\'s Library</item>
+        <item>Bay &amp; St.J</item>
+    </string-array>
+</resources>
