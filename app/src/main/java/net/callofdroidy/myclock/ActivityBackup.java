@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -24,9 +25,14 @@ public class ActivityBackup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backup);
 
+        //get the Dir of all SharedPreferences files and show a list
+        File fileDir = new File(getApplicationInfo().dataDir, "shared_prefs");
+        if(fileDir.exists() && fileDir.isDirectory()){
+            String[] fileList = fileDir.list();
+            adapterProfile = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, fileList);
+        }
         listView_profiles = (ListView) findViewById(R.id.listview_profile_history);
-
-        adapterProfile = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, );
+        listView_profiles.setAdapter(adapterProfile);
 
         findViewById(R.id.btn_backup).setOnClickListener(new View.OnClickListener() {
             @Override
